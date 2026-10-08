@@ -4,16 +4,14 @@ Webapp-only plugin. Clicking a `.md` attachment opens it rendered as markdown in
 
 ## Install
 
-```sh
-make
-```
-
-Upload `dist/render-md-0.1.1.tar.gz` in System Console > Plugins > Plugin Management, or:
+Download `render-md-<version>.tar.gz` from the [latest release](https://github.com/jaschadub/mattermost-render-md-plugin/releases/latest), then upload it in System Console > Plugins > Plugin Management, or:
 
 ```sh
-mmctl plugin add dist/render-md-0.1.1.tar.gz
+mmctl plugin add render-md-<version>.tar.gz
 mmctl plugin enable render-md
 ```
+
+To build the tarball yourself instead, run `make`. It lands in `dist/`.
 
 ## How it works
 
