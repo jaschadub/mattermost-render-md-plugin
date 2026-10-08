@@ -2,6 +2,8 @@
 
 Webapp-only plugin. Clicking a `.md` attachment opens it rendered as markdown instead of as highlighted source. A Rendered / Source toggle at the top of the preview switches back to the highlighted source view.
 
+![A markdown attachment opened in the file preview modal, rendered with headings and formatting, with Rendered and Source toggle buttons at the top](demo-mm-render.png)
+
 ## Install
 
 Download `render-md-<version>.tar.gz` from the [latest release](https://github.com/jaschadub/mattermost-render-md-plugin/releases/latest), then upload it in System Console > Plugins > Plugin Management, or:
