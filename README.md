@@ -1,6 +1,4 @@
-<img src="md-render-mattermost-512.png" align="right" width="128" alt="Plugin icon: a document with eyes labeled .md">
-
-# Markdown File Preview for Mattermost
+# Markdown File Preview for Mattermost <img src="md-render-mattermost-512.png" width="56" alt="Plugin icon: a document with eyes labeled .md">
 
 Webapp-only plugin. Clicking a `.md` attachment opens it rendered as markdown instead of as highlighted source. A Rendered / Source toggle at the top of the preview switches back to the highlighted source view.
 
