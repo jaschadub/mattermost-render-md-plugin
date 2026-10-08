@@ -1,0 +1,11 @@
+{
+    "id": "render-md",
+    "name": "Markdown File Preview",
+    "description": "Renders .md attachments in the file preview, with a toggle back to the highlighted source.",
+    "homepage_url": "https://github.com/jaschadub/mattermost-render-md-plugin",
+    "version": "0.1.0",
+    "min_server_version": "7.0.0",
+    "webapp": {
+        "bundle_path": "webapp/main.js"
+    }
+}
