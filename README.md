@@ -8,10 +8,10 @@ Webapp-only plugin. Clicking a `.md` attachment opens it rendered as markdown in
 make
 ```
 
-Upload `dist/render-md-0.1.0.tar.gz` in System Console > Plugins > Plugin Management, or:
+Upload `dist/render-md-0.1.1.tar.gz` in System Console > Plugins > Plugin Management, or:
 
 ```sh
-mmctl plugin add dist/render-md-0.1.0.tar.gz
+mmctl plugin add dist/render-md-0.1.1.tar.gz
 mmctl plugin enable render-md
 ```
 
@@ -21,6 +21,7 @@ mmctl plugin enable render-md
 - The component fetches the file from `/api/v4/files/{id}` and renders it with the webapp's own `formatText` and `messageHtmlToComponent`, so sanitizing, emoji and mentions behave like a normal post.
 - Source view wraps the file in a fenced `markdown` code block and sends it through the same renderer, so highlighting matches the built-in code previewer.
 - Files over 1 MiB are not rendered. Download them instead.
+- A small injected stylesheet undoes the preview modal's own `code` and link rules, which are sized for its code previewer.
 
 There is no build step. `webapp/main.js` is plain JavaScript against the React instance the webapp exposes.
 

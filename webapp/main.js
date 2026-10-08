@@ -10,6 +10,15 @@
     // ponytail: hard cap, uploads come from other users. Stream or chunk if real notes exceed it.
     const MAX_BYTES = 1024 * 1024;
 
+    // The file preview modal styles code and links for its own code previewer: inline-block
+    // with a 330x130 minimum, and white links. Restore the normal post values inside our wrapper.
+    const STYLE_ID = 'render-md-style';
+    const CSS = `
+.render-md code { display: inline !important; min-width: 0 !important; min-height: 0 !important; }
+.render-md .post-code code { display: block !important; }
+.render-md a { color: var(--link-color) !important; }
+`;
+
     const WRAPPER_STYLE = {
         width: '100%',
         maxWidth: 960,
@@ -85,7 +94,16 @@
     if (typeof window !== 'undefined' && window.registerPlugin) {
         window.registerPlugin('render-md', {
             initialize(registry) {
+                if (!document.getElementById(STYLE_ID)) {
+                    const style = document.createElement('style');
+                    style.id = STYLE_ID;
+                    style.textContent = CSS;
+                    document.head.appendChild(style);
+                }
                 registry.registerFilePreviewComponent(isMarkdown, MarkdownPreview);
+            },
+            uninitialize() {
+                document.getElementById(STYLE_ID)?.remove();
             },
         });
     }
