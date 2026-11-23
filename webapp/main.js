@@ -8,15 +8,19 @@
     const EXTENSIONS = ['md', 'markdown', 'mkd', 'mkdown'];
 
     // ponytail: hard cap, uploads come from other users. Stream or chunk if real notes exceed it.
-    const MAX_BYTES = 1024 * 1024;
+    const MAX_BYTES = 5 * 1024 * 1024;
 
     // The file preview modal styles code and links for its own code previewer: inline-block
     // with a 330x130 minimum, and white links. Restore the normal post values inside our wrapper.
+    // The header's copy button (absent in 7.x) is fed by the built-in code previewer we replace,
+    // so it would copy nothing, or the file viewed before this one. Hide it while we are mounted;
+    // the code block in Source view has its own copy button.
     const STYLE_ID = 'render-md-style';
     const CSS = `
 .render-md code { display: inline !important; min-width: 0 !important; min-height: 0 !important; }
 .render-md .post-code code { display: block !important; }
 .render-md a { color: var(--link-color) !important; }
+.file-preview-modal:has(.render-md) .file-preview-modal-main-actions__actions .post-code__clipboard { display: none !important; }
 `;
 
     const WRAPPER_STYLE = {

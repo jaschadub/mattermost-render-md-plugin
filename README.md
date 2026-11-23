@@ -15,13 +15,16 @@ mmctl plugin enable render-md
 
 To build the tarball yourself instead, run `make`. It lands in `dist/`.
 
+Tested on Mattermost 11.11. The manifest allows 7.0 and later.
+
 ## How it works
 
 - `registry.registerFilePreviewComponent` overrides the preview for `md`, `markdown`, `mkd` and `mkdown` attachments.
 - The component fetches the file from `/api/v4/files/{id}` and renders it with the webapp's own `formatText` and `messageHtmlToComponent`, so sanitizing, emoji and mentions behave like a normal post.
 - Source view wraps the file in a fenced `markdown` code block and sends it through the same renderer, so highlighting matches the built-in code previewer.
-- Files over 1 MiB are not rendered. Download them instead.
+- Files over 5 MiB are not rendered. Download them instead.
 - A small injected stylesheet undoes the preview modal's own `code` and link rules, which are sized for its code previewer.
+- The same stylesheet hides the copy button in the modal header for these files. That button is wired to the built-in previewer, so it would copy the wrong content. To copy the file, use the copy button on the code block in Source view.
 
 There is no build step. `webapp/main.js` is plain JavaScript against the React instance the webapp exposes.
 
